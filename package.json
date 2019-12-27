@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Express Application built for GCI Task.",
   "repository": {
-    "url": ""
+    "url": "https://github.com/Goutam192002/gci-react-express"
   },
   "private": true,
   "scripts": {
