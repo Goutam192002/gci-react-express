@@ -1,0 +1,89 @@
+{
+  "products": [
+    {
+      "id" : "P001",
+      "categoryId" : "cty01",
+      "name" : "Pine Apple",
+      "unit" : "Kg",
+      "pricePerUnit" : 1.2,
+      "stocks" : 10
+    }, {
+      "id": "P002",
+      "categoryId": "cty01",
+      "name": "Apple",
+      "unit": "Kg",
+      "pricePerUnit": 3.2,
+      "stocks": 50
+    }, {
+      "id": "P003",
+      "categoryId": "cty01",
+      "name": "Mango",
+      "unit": "Kg",
+      "pricePerUnit": 1.5,
+      "stocks": 25
+    }, {
+      "id": "P004",
+      "categoryId": "cty02",
+      "name": "Onion",
+      "unit": "Kg",
+      "pricePerUnit": 2.5,
+      "stocks": 15
+    }, {
+      "id": "P005",
+      "categoryId": "cty02",
+      "name": "Spinach",
+      "unit": "Kg",
+      "pricePerUnit": 1.1,
+      "stocks": 100
+    }, {
+      "id": "P006",
+      "categoryId": "cty02",
+      "name": "Broccoli",
+      "unit": "Kg",
+      "pricePerUnit": 1.5,
+      "stocks": 25
+    }, {
+      "id": "P006",
+      "categoryId": "cty03",
+      "name": "Noodles",
+      "unit": "Kg",
+      "pricePerUnit": 2,
+      "stocks": 125
+    },  {
+      "id": "P007",
+      "categoryId": "cty03",
+      "name": "Pasta",
+      "unit": "Kg",
+      "pricePerUnit": 1.75,
+      "stocks": 95
+    },  {
+      "id": "P008",
+      "categoryId": "cty03",
+      "name": "Flakes",
+      "unit": "Kg",
+      "pricePerUnit": 1.25,
+      "stocks": 65
+    },  {
+      "id": "P009",
+      "categoryId": "cty04",
+      "name": "Beer",
+      "unit": "L",
+      "pricePerUnit": 1.5,
+      "stocks": 125
+    },  {
+      "id": "P010",
+      "categoryId": "cty04",
+      "name": "Coke",
+      "unit": "L",
+      "pricePerUnit": 1.25,
+      "stocks": 99
+    },  {
+      "id": "P011",
+      "categoryId": "cty04",
+      "name": "Coffee",
+      "unit": "L",
+      "pricePerUnit": 1.65,
+      "stocks": 98
+    }
+  ]
+}
