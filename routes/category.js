@@ -1,26 +1,21 @@
+
+
 const express = require('express');
 const router = express.Router();
-const products = require('../src/data/products');
-const categories = require('../src/data/categories');
+const service = require('../services/dataService');
 
 router.get('/:ctyId', function(req, res, next) {
-    const ctyId = req.params.ctyId;
-    let currentCategory;
-    let response = [];
-    categories.categories.forEach( category => {
-        if (category.id === ctyId) {
-            currentCategory = category;
-        }
-    });
-    products.products.forEach( product => {
-        if (product.categoryId === ctyId) {
-            response.push({
-                ...product,
-                category: currentCategory
-            });
-        }
-    });
-    res.send(response);
+  service.getProducts();
+  service.getCategories();
+  service.getCombinedProductMap();
+  const ctyId = req.params.ctyId;
+  const response = [];
+  for (const product in service.productMap) {
+    if (service.productMap[product].categoryId === ctyId) {
+      response.push(service.combinedProductMap[product]);
+    }
+  }
+  res.send(response);
 });
 
 module.exports = router;

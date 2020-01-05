@@ -1,19 +1,13 @@
+
+
 const express = require('express');
 const router = express.Router();
-const products = require('../src/data/products');
-const categories = require('../src/data/categories');
+const service = require('../services/dataService');
 
 router.get('/all', function(req, res, next) {
-    const response = [];
-    products.products.forEach( product => {
-        categories.categories.forEach( category => {
-            if (product.categoryId === category.id) {
-                product.category = category;
-            }
-        });
-        response.push(product);
-    });
-    res.send(response);
+  service.getProducts();
+  service.getCategories();
+  res.send(service.getCombinedProductMap());
 });
 
 module.exports = router;
