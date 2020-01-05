@@ -4,9 +4,10 @@ const express = require('express');
 const router = express.Router();
 const service = require('../services/dataService');
 
+/*
+ * This method returns the complete products array
+ */
 router.get('/all', function(req, res, next) {
-  service.getProducts();
-  service.getCategories();
   res.send(service.getCombinedProductMap());
 });
 
