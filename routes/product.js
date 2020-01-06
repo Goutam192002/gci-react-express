@@ -10,7 +10,7 @@ const service = require('../services/dataService');
  * Pretty Simple :)
  */
 router.get('/:id', function(req, res, next) {
-  const products = service.getCombinedProductMap();
+  const combinedProductMap = service.getCombinedProductMap();
   res.send(products[req.params.id]);
 });
 

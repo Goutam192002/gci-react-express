@@ -9,13 +9,13 @@ const service = require('../services/dataService');
  * If matches then push to the response array.
  */
 router.get('/:ctyId', function(req, res, next) {
-  service.getCombinedProductMap();
-  const ctyId = req.params.ctyId;
+  const { ctyId } = req.params;
   const response = [];
-  for (const product in service.combinedProductMap) {
-    if (service.combinedProductMap.hasOwnProperty(product)) {
-      if (service.combinedProductMap[product].categoryId === ctyId) {
-        response.push(service.combinedProductMap[product]);
+  const combinedProductMap = service.getCombinedProductMap();
+  for (const product in combinedProductMap) {
+    if (combinedProductMap.hasOwnProperty(product)) {
+      if (combinedProductMap[product].categoryId === ctyId) {
+        response.push(combinedProductMap[product]);
       }
     }
   }
