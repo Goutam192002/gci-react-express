@@ -10,7 +10,7 @@ const service = require('../services/dataService');
  */
 router.get('/:ctyId', function(req, res, next) {
   service.getCombinedProductMap();
-  const ctyId = req.params.ctyId;
+  const { ctyId } = req.params;
   const response = [];
   for (const product in service.combinedProductMap) {
     if (service.combinedProductMap.hasOwnProperty(product)) {
