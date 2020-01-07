@@ -7,13 +7,17 @@ const dataService = require('../services/dataService');
  */
 router.get('/all', function(req, res, next) {
   const products = dataService.getCombinedProductMap();
-  const response = [];
-  for (const product in products) {
-    if (products.hasOwnProperty(product)) {
-      response.push(products[product])
-    }
-  }
-  res.send(response);
+  res.send(Object.values(products));
+});
+
+/*
+ * This method gets the id of the product from the req params.
+ * It gets the combinedProductMap and returns the product of that id;
+ * Pretty Simple :)
+ */
+router.get('/:id', function(req, res, next) {
+  const combinedProductMap = dataService.getCombinedProductMap();
+  res.send(combinedProductMap[req.params.id]);
 });
 
 module.exports = router;
