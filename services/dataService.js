@@ -31,10 +31,10 @@ const getCategories = () => {
  * Then we combine the category and product and assign it to the combinedProductMap
  */
 const combineProductsWithCategories = () => {
-  if (!!productMap) {
+  if (productMap.length === 0) {
     getProducts();
   }
-  if (!!categoryMap) {
+  if (categoryMap.length === 0) {
     getCategories();
   }
   for (const product in productMap) {
@@ -51,7 +51,7 @@ const combineProductsWithCategories = () => {
  * A kinda getter method to get combinedProductMap variable.
  */
 const getCombinedProductMap = () => {
-  if (!!combinedProductMap) {
+  if (combinedProductMap.length === 0) {
     combineProductsWithCategories();
   }
   return combinedProductMap;
