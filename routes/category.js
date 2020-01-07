@@ -12,11 +12,11 @@ router.get('/:ctyId', function(req, res, next) {
   const { ctyId } = req.params;
   const response = [];
   const combinedProducts = Object.values(dataService.getCombinedProductMap());
-  for (const product in  combinedProducts) {
-      if (product.categoryId === ctyId) {
-        response.push(product);
-      }
+  combinedProducts.forEach( product => {
+    if (product.categoryId === ctyId) {
+      response.push(product);
     }
+  });
   res.send(response);
 });
 
