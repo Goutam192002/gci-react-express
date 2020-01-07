@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const service = require('../services/dataService');
+const dataService = require('../services/dataService');
 
 /*
  * This method first gets the category ID from the request params.
@@ -11,7 +11,7 @@ const service = require('../services/dataService');
 router.get('/:ctyId', function(req, res, next) {
   const { ctyId } = req.params;
   const response = [];
-  const combinedProductMap = service.getCombinedProductMap();
+  const combinedProductMap = dataService.getCombinedProductMap();
   for (const product in combinedProductMap) {
     if (combinedProductMap.hasOwnProperty(product)) {
       if (combinedProductMap[product].categoryId === ctyId) {

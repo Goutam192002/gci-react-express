@@ -1,6 +1,6 @@
-const productMap = null;
-const categoryMap = null;
-const combinedProductMap = null;
+const productMap = [];
+const categoryMap = [];
+const combinedProductMap = [];
 
 /*
  * This method loops through the products array and maps them to a variable called productMap
@@ -31,10 +31,10 @@ const getCategories = () => {
  * Then we combine the category and product and assign it to the combinedProductMap
  */
 const combineProductsWithCategories = () => {
-  if (!productMap) {
+  if (!!productMap) {
     getProducts();
   }
-  if (!categoryMap) {
+  if (!!categoryMap) {
     getCategories();
   }
   for (const product in productMap) {
@@ -51,7 +51,7 @@ const combineProductsWithCategories = () => {
  * A kinda getter method to get combinedProductMap variable.
  */
 const getCombinedProductMap = () => {
-  if (!combinedProductMap) {
+  if (!!combinedProductMap) {
     combineProductsWithCategories();
   }
   return combinedProductMap;

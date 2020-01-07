@@ -1,5 +1,3 @@
-
-
 const express = require('express');
 const router = express.Router();
 const service = require('../services/dataService');
@@ -11,7 +9,7 @@ const service = require('../services/dataService');
  */
 router.get('/:id', function(req, res, next) {
   const combinedProductMap = service.getCombinedProductMap();
-  res.send(products[req.params.id]);
+  res.send(combinedProductMap[req.params.id]);
 });
 
 module.exports = router;
