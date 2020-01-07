@@ -14,7 +14,7 @@ router.get('/:ctyId', function(req, res, next) {
   const combinedProducts = Object.values(dataService.getCombinedProductMap());
   for (const product in  combinedProducts) {
       if (product.categoryId === ctyId) {
-        response.push(combinedProducts[product]);
+        response.push(product);
       }
     }
   res.send(response);
