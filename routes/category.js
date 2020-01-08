@@ -10,13 +10,15 @@ const dataService = require('../services/dataService');
  */
 router.get('/:ctyId', function(req, res, next) {
   const { ctyId } = req.params;
-  const response = [];
-  const combinedProducts = Object.values(dataService.getCombinedProductMap());
-  combinedProducts.forEach( product => {
-    if (product.categoryId === ctyId) {
-      response.push(product);
+  const response = {};
+  const combinedProductsMap = dataService.getCombinedProductMap();
+  for (let product in combinedProductsMap) {
+    if (combinedProductsMap.hasOwnProperty(product)) {
+      if (combinedProductsMap[product].categoryId === ctyId) {
+        response[product] = combinedProductsMap[product]
+      }
     }
-  });
+  }
   res.send(response);
 });
 

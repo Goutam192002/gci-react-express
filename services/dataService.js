@@ -59,9 +59,4 @@ const getCombinedProductMap = () => {
 
 module.exports = {
   getCombinedProductMap,
-  getProducts,
-  getCategories,
-  productMap,
-  categoryMap,
-  combinedProductMap,
 };

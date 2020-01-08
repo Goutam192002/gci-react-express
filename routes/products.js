@@ -7,7 +7,7 @@ const dataService = require('../services/dataService');
  */
 router.get('/all', function(req, res, next) {
   const products = dataService.getCombinedProductMap();
-  res.send(Object.values(products));
+  res.send(products);
 });
 
 /*
