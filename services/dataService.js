@@ -1,6 +1,6 @@
-let productMap = null;
-let categoryMap = null;
-let combinedProductMap = null;
+let productMap = {};
+let categoryMap = {};
+let combinedProductMap = {};
 
 /*
  * This method loops through the products array and maps them to a variable called productMap
