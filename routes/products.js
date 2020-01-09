@@ -3,7 +3,7 @@ const router = express.Router();
 const dataService = require('../services/dataService');
 
 /*
- * This method returns the complete products array
+ * This method returns the complete products map
  */
 router.get('/all', function(req, res, next) {
   const products = dataService.getCombinedProductMap();
