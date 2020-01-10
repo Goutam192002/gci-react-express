@@ -39,7 +39,7 @@ const combineProductsWithCategories = () => {
     getCategories();
   }
   for (const product in productMap) {
-    combinedProductMap[productMap[product].id] = {
+    combinedProductMap[product] = {
       ...productMap[product],
       category: categoryMap[productMap[product].categoryId],
     };
