@@ -7,10 +7,11 @@ let combinedProductMap = {};
  */
 const getProducts = () => {
   const products = require('../src/data/products');
-
+  let map = {};
   products.products.forEach(product => {
-    productMap[product.id] = product;
+    map[product.id] = product;
   });
+  productMap = map;
 };
 
 /*
@@ -38,12 +39,10 @@ const combineProductsWithCategories = () => {
     getCategories();
   }
   for (const product in productMap) {
-    if (productMap.hasOwnProperty(product)) {
-      combinedProductMap[productMap[product].id] = {
-        ...productMap[product],
-        category: categoryMap[productMap[product].categoryId],
-      };
-    }
+    combinedProductMap[productMap[product].id] = {
+      ...productMap[product],
+      category: categoryMap[productMap[product].categoryId],
+    };
   }
 };
 
