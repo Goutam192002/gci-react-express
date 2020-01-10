@@ -1,26 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const products = require('../src/data/products');
-const categories = require('../src/data/categories');
+const dataService = require('../services/dataService');
 
+/*
+ * This method first gets the category ID from the request params.
+ * Then it loops through the combinedProductMap.
+ * It checks if the category id of that particular product is equal to the request param
+ * If matches then map it in the response
+ */
 router.get('/:ctyId', function(req, res, next) {
-    const ctyId = req.params.ctyId;
-    let currentCategory;
-    let response = [];
-    categories.categories.forEach( category => {
-        if (category.id === ctyId) {
-            currentCategory = category;
-        }
-    });
-    products.products.forEach( product => {
-        if (product.categoryId === ctyId) {
-            response.push({
-                ...product,
-                category: currentCategory
-            });
-        }
-    });
-    res.send(response);
+  const { ctyId } = req.params;
+  const response = {};
+  const combinedProductsMap = dataService.getCombinedProductMap();
+  for (let productId in combinedProductsMap) {
+    if (combinedProductsMap[productId].categoryId === ctyId) {
+      response[productId] = combinedProductsMap[productId]
+    }
+  }
+  res.send(response);
 });
 
 module.exports = router;

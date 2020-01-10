@@ -1,19 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const products = require('../src/data/products');
-const categories = require('../src/data/categories');
+const dataService = require('../services/dataService');
 
+/*
+ * This method returns the complete products map
+ */
 router.get('/all', function(req, res, next) {
-    const response = [];
-    products.products.forEach( product => {
-        categories.categories.forEach( category => {
-            if (product.categoryId === category.id) {
-                product.category = category;
-            }
-        });
-        response.push(product);
-    });
-    res.send(response);
+  const products = dataService.getCombinedProductMap();
+  res.send(products);
+});
+
+/*
+ * This method gets the id of the product from the req params.
+ * It gets the combinedProductMap and returns the product of that id;
+ * Pretty Simple :)
+ */
+router.get('/:id', function(req, res, next) {
+  const combinedProductMap = dataService.getCombinedProductMap();
+  res.send(combinedProductMap[req.params.id]);
 });
 
 module.exports = router;
